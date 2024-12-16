@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SBI Account Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Base styling */
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            height: 90vh;
+            overflow-y: auto;
+        }
+
+        /* Header with bank name, profile picture, and logout button */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .bank-name {
+            display: flex;
+            align-items: center;
+        }
+
+        .bank-name h1 {
+            font-size: 1.8em;
+            color: #1a73e8;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .user-details {
+            text-align: right;
+        }
+
+        .user-details h2 {
+            font-size: 1em;
+            font-weight: 600;
+            color: #111827;
+            margin: 0;
+        }
+
+        .user-details p {
+            font-size: 0.9em;
+            color: #4b5563;
+            margin: 3px 0;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        /* Bank "About" section */
+        .about-bank {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9fafb;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .about-bank h2 {
+            font-size: 1.5em;
+            color: #1a73e8;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .about-bank p {
+            font-size: 1em;
+            color: #4b5563;
+        }
+
+        /* Account Information Section */
+        .account-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .account-info div {
+            flex: 1;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #f9fafb;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin: 0 10px;
+            text-align: center;
+        }
+        .account-info h3 {
+            color: #1a73e8;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .account-info p {
+            font-size: 1em;
+            color: #4b5563;
+        }
+
+        /* Transaction Table */
+        .transaction-history {
+            margin-top: 20px;
+        }
+        .transaction-history h2 {
+            font-size: 1.3em;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .transaction-history table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .transaction-history th, .transaction-history td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .transaction-history th {
+            background-color: #f3f4f6;
+            color: #4b5563;
+            font-weight: 600;
+        }
+        .transaction-history tr:hover {
+            background-color: #f9fafb;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85em;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Header with bank name, profile picture, and logout button -->
+    <div class="header">
+        <div class="bank-name">
+            <h1>LOCAL BANK</h1>
+        </div>
+        <div class="user-profile">
+            <img src="WhatsApp Image 2024-08-03 at 17.19.42_0133756b.jpg" alt="User Profile Picture">
+            <div class="user-details">
+                <h2>JYOTI RAJ SHAHDEO</h2>
+                <p>jyotirajshahdeo@gmail.com</p>
+            </div><br>
+            <img src="WhatsApp Image 2024-11-02 at 17.40.27_a31ccba9.jpg" alt="User Profile Picture">
+            <div class="user-details">
+                <h2>ANKIT KUMAR</h2>
+                <p>ankitkumar@gmail.com</p>
+            </div>
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <!-- Bank "About" section -->
+    <div class="about-bank">
+        <h2>About Local Bank </h2>
+        <p>Local Bank is India’s leading public sector bank. It provides a range of financial services to millions across the nation.</p>
+    </div>
+
+    <!-- Account Information Section -->
+    <div class="account-info">
+       <div>
+           <h3>Account Balance</h3>
+           <p>₹50,00,000.00</p>
+       </div>
+       <div>
+           <h3>Account Number</h3>
+           <p>XXXX-XXXX-XXXX-1234</p>
+       </div>
+    </div>
+
+    <!-- Transactions Table -->
+    <div class="transaction-history">
+       <h2>Recent Transactions</h2>
+       <table>
+           <thead>
+               <tr>
+                   <th>Date</th>
+                   <th>Description</th>
+                   <th>Amount</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr><td>2024-11-01</td><td>Deposit from Employer</td><td>+ ₹50,000.00</td></tr>
+               <tr><td>2024-10-28</td><td>ATM Withdrawal</td><td>- ₹5,000.00</td></tr>
+               <tr><td>2024-10-25</td><td>Utility Bill Payment</td><td>- ₹1,200.00</td></tr>
+               <tr><td>2024-10-22</td><td>Online Purchase</td><td>- ₹3,500.00</td></tr>
+           </tbody>
+       </table>
+   </div>
+
+   <!-- Footer -->
+   <footer>&copy; 2024 Local Bank. All rights reserved.</footer>
+</div>
+
+<script>
+    // Logout function
+    function logout() {
+        localStorage.removeItem('credentialId'); // Clear stored credential
+        window.location.href = "index.html"; // Redirect back to the login page
+    }
+</script>
+</body>
+</html>

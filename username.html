@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Multi-Factor Authentication</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #acb6e5); /* Gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: white; /* White background for the form */
+            border-radius: 15px; /* Softer rounded corners */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow for more depth */
+            padding: 40px;
+            text-align: center;
+            width: 400px; /* Fixed width for the container */
+            transition: transform 0.3s; /* Smooth scale effect */
+        }
+        .container:hover {
+            transform: scale(1.02); /* Slight zoom on hover */
+        }
+        h3 {
+            color: #6a82fb; /* Vibrant heading color */
+            margin-bottom: 20px;
+            font-size: 1.8em; /* Larger font size for headings */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #333; /* Darker text for better readability */
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 12px; /* Increased padding for comfort */
+            border-radius: 8px; /* More rounded corners */
+            border: 2px solid #ccc; /* Light gray border */
+            font-size: 16px;
+            margin-bottom: 20px; /* Space below the input */
+            transition: border-color 0.3s; /* Smooth border color transition */
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #6a82fb; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+        button {
+            background-color: #6a82fb; /* Bright button color */
+            color: white;
+            border: none;
+            padding: 12px 20px; /* Increased padding for buttons */
+            border-radius: 8px; /* Softer rounded corners */
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+            width: 100%; /* Full width for button */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+        }
+        button:hover {
+            background-color: #5a6cb2; /* Darker blue on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+        button:active {
+            transform: translateY(0); /* Reset on click */
+        }
+        .footer {
+            margin-top: 20px;
+        }
+        .footer a {
+            text-decoration: none;
+            color: #6a82fb; /* Link color */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+        .footer a:hover {
+            color: #0056b3; /* Darker link color on hover */
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                width: 90%; /* Responsive width on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Login</h3>
+        <form id="loginForm" action="pin_verification.html" method="POST"> <!-- Updated action -->
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required placeholder="Enter your username">
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required placeholder="Enter your password">
+            
+            <button type="submit">Log In</button>
+        </form>
+        
+        <div class="footer">
+            <p><a href="#">Forgot Password?</a></p>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+</body>
+</html>
